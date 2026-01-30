@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>C：最終｜探索用ダッシュボード</title>
+  <link rel="stylesheet" href="./css/style.css" />
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div>
+        <h1>C：最終（探索用ダッシュボード）</h1>
+        <div class="subtitle">
+          指標の切り替え・監督フィルタ・公開年レンジを使って、関係性を探索する。
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="./index.html">Top</a>
+        <a href="./a.html">A：静的</a>
+        <a href="./b.html">B：動的</a>
+      </nav>
+    </div>
+
+    <div class="card" style="display:grid; grid-template-columns: 1fr 1fr; gap:18px;">
+      <div>
+        <h2>操作</h2>
+        <div class="hr"></div>
+
+        <div style="display:grid; gap:12px;">
+          <label>
+            <div style="margin-bottom:6px; opacity:.85;">X軸</div>
+            <select id="xMetric" style="width:100%; padding:10px; border-radius:10px;">
+              <option value="runtime">上映時間（分）</option>
+              <option value="gross">興行収入（Gross）</option>
+              <option value="year">公開年</option>
+            </select>
+          </label>
+
+          <label>
+            <div style="margin-bottom:6px; opacity:.85;">監督</div>
+            <select id="directorFilter" style="width:100%; padding:10px; border-radius:10px;">
+              <option value="ALL">すべて</option>
+            </select>
+          </label>
+
+          <div>
+            <div style="display:flex; justify-content:space-between; opacity:.85;">
+              <span>公開年（最小）</span>
+              <span id="yearMinLabel">—</span>
+            </div>
+            <input id="yearMin" type="range" min="1980" max="2030" value="1980" style="width:100%;" />
+          </div>
+
+          <div>
+            <div style="display:flex; justify-content:space-between; opacity:.85;">
+              <span>公開年（最大）</span>
+              <span id="yearMaxLabel">—</span>
+            </div>
+            <input id="yearMax" type="range" min="1980" max="2030" value="2030" style="width:100%;" />
+          </div>
+
+          <div id="statusC" style="opacity:.85;"></div>
+        </div>
+
+        <div class="footerNote" style="margin-top:12px;">
+          追加操作：散布図をドラッグして範囲選択（brush）すると、右の表に選択作品が出る。
+        </div>
+      </div>
+
+      <div>
+        <h2>選択した作品の一覧</h2>
+        <div class="hr"></div>
+        <div style="overflow:auto;">
+          <table style="width:100%; border-collapse:collapse;">
+            <thead style="opacity:.9;">
+              <tr>
+                <th style="text-align:left; padding:8px;">Title</th>
+                <th style="text-align:left; padding:8px;">Year</th>
+                <th style="text-align:left; padding:8px;">Director</th>
+                <th style="text-align:left; padding:8px;">Rating</th>
+                <th style="text-align:left; padding:8px;">Gross</th>
+              </tr>
+            </thead>
+            <tbody id="tableBody" style="opacity:.95;"></tbody>
+          </table>
+        </div>
+        <div class="footerNote">表は最大30件まで表示。条件が厳しすぎる場合はフィルタを緩める。</div>
+      </div>
+
+      <div style="grid-column: 1 / -1;">
+        <h2>散布図（Y軸：評価固定）</h2>
+        <div class="hr"></div>
+        <div id="chartC"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./js/c_dashboard.js"></script>
+</body>
+</html>
