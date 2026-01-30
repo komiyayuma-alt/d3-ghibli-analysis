@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>D3.js 最終レポート｜ジブリ作品の可視化</title>
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div>
+        <h1>最終レポート（D3.js）</h1>
+        <div class="subtitle">
+          スタジオジブリ作品を対象に、公開年・上映時間・評価・興行収入の関係をD3.jsで可視化した。<br/>
+          A（静的）/ B（動的）/ C（最終） の3ページ構成。
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="./a.html">A：静的</a>
+        <a href="./b.html">B：動的</a>
+        <a href="./c.html">C：最終</a>
+      </nav>
+    </div>
+
+    <div class="card">
+      <h2>研究の問い</h2>
+      <p>
+        公開年や上映時間といった作品の特徴が、観客評価（IMDb想定）や興行収入とどのような関係を持つのかを確認する。
+        また、監督ごとに評価や収益の傾向に違いが見られるかも併せて見る。
+      </p>
+      <div class="hr"></div>
+      <p class="small">
+        ※作品情報をまとめたデータ（data/ghibli.csv）を使用して可視化している。
+        列構成を維持したまま値を差し替えると、そのまま動作する。
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>ページ構成</h2>
+      <p>本課題は以下の3ページで構成している。</p>
+      <div class="hr"></div>
+      <ul>
+        <li>A：公開年と評価の推移（折れ線）</li>
+        <li>B：上映時間と評価の関係（散布図＋Tooltip）</li>
+        <li>C：複数指標の比較（フィルタ＋brush＋一覧表）</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
