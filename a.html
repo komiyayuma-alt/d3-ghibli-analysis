@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>A：静的｜ジブリ作品の可視化</title>
+  <link rel="stylesheet" href="./css/style.css" />
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div>
+        <h1>A：静的（公開年 × 評価）</h1>
+        <div class="subtitle">
+          作品を公開年順に並べ、評価が時系列でどう変化するかを確認する。
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="./index.html">Top</a>
+        <a href="./b.html">B：動的</a>
+        <a href="./c.html">C：最終</a>
+      </nav>
+    </div>
+
+    <div class="card">
+      <h2>可視化</h2>
+      <p>全作品の推移を見て、特定の時期に高評価が集中しているかをざっくり掴む。</p>
+      <div class="hr"></div>
+      <div id="chart"></div>
+      <div class="footerNote">
+        見どころ：極端に高い（または低い）作品がいつ出ているか／前後の流れ。
+      </div>
+    </div>
+  </div>
+
+  <script src="./js/a_line.js"></script>
+</body>
+</html>
